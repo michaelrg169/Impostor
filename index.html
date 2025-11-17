@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubre al Impostor VNZL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" class="container">
+        <!-- Settings Dropdown Menu -->
+        <div class="settings-dropdown">
+            <button id="settings-menu-btn" class="small-button">⚙️ Ajustes</button>
+            <div id="settings-dropdown-content" class="dropdown-content hidden">
+                <button id="dropdown-new-game-btn" class="dropdown-item">Iniciar Nueva Partida</button>
+                <button id="dropdown-customize-words-btn" class="dropdown-item">Personalizar Palabras</button>
+                <button id="dropdown-reveal-impostor-btn" class="dropdown-item">Revelar Impostor</button>
+            </div>
+        </div>
+
+        <header>
+            <h1>Descubre al Impostor 🕵️‍♂️</h1>
+        </header>
+
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen active">
+            <div class="home-image-container">
+                <img src="images/0.png" alt="Impostor Logo">
+            </div>
+            <button id="show-config-btn" class="main-button">Iniciar Partida</button>
+        </div>
+
+        <!-- Configuration Screen -->
+        <div id="config-screen" class="screen">
+            <div class="settings-group">
+                <h2>Ajustes de Partida</h2>
+                <div class="setting">
+                    <label for="num-players">Número de Jugadores (Mín. 3):</label>
+                    <input type="number" id="num-players" min="3" value="4">
+                </div>
+                <div class="setting">
+                    <label for="num-impostors">Número de Impostores (Mín. 1):</label>
+                    <input type="number" id="num-impostors" min="1" max="1" value="1">
+                </div>
+                <div id="player-names-container">
+                    <!-- Player name inputs will be dynamically added here -->
+                </div>
+                <button id="start-game-btn" class="main-button">Iniciar Partida</button>
+                <button id="back-to-home-from-config-btn" class="secondary-button">Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Role Revelation Screen -->
+        <div id="role-reveal-screen" class="screen">
+            <h2 id="current-player-title">Jugador X</h2>
+            <div class="role-reveal-container">
+                <img id="role-image" src="https://via.placeholder.com/200x200?text=Rol+Oculto" alt="Rol del Jugador" class="role-image">
+                <p id="reveal-message">Pasa el dispositivo al siguiente jugador.</p>
+                <button id="reveal-role-btn" class="main-button">Revelar Rol</button>
+            </div>
+
+            <div id="role-info" class="hidden-info hidden">
+                <h3 id="role-name"></h3>
+                <p id="role-word"></p>
+                <p class="role-instruction"></p>
+                <button id="next-player-btn" class="secondary-button">Siguiente Jugador</button>
+            </div>
+        </div>
+
+        <!-- Word Customization Screen -->
+        <div id="customize-screen" class="screen">
+            <h2>📝 Personalizar Palabras</h2>
+            <p class="text-center">Haz clic en las celdas para editar. Añade o elimina filas según necesites.</p>
+            <div class="table-container">
+                <table id="words-table">
+                    <thead>
+                        <tr>
+                            <th>Palabra Clave (Civil)</th>
+                            <th>Pista (Impostor)</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Word rows will be generated here -->
+                    </tbody>
+                </table>
+            </div>
+            <button id="add-word-row-btn" class="secondary-button">Añadir Fila</button>
+            <button id="save-words-btn" class="main-button">Guardar Cambios</button>
+            <button id="cancel-customize-btn" class="secondary-button">Volver</button>
+        </div>
+
+        <!-- Debate Screen -->
+        <div id="debate-screen" class="screen">
+            <h2>⏳ ¡A Debatir! 🗣️</h2>
+            <h3 id="debate-starter-info"></h3>
+            <p class="text-center">Uno por uno, los jugadores deben dar una palabra o frase relacionada con la palabra secreta sin revelarla.</p>
+            <div class="timer-display">
+                <span id="timer">3:00</span>
+            </div>
+            <button id="start-debate-btn" class="main-button">Comenzar Debate</button>
+            <button id="vote-btn" class="secondary-button hidden">Ir a Votación</button>
+        </div>
+
+        <!-- Vote Screen -->
+        <div id="vote-screen" class="screen">
+            <h2>🗳️ ¿Quién es el Impostor?</h2>
+            <div id="vote-options-container">
+                <!-- Voting buttons will be generated here -->
+            </div>
+            <div id="vote-result" class="hidden">
+                <p id="vote-result-message"></p>
+                <button id="next-round-btn" class="main-button hidden">Siguiente Ronda</button>
+                <button id="play-again-btn" class="main-button hidden">Jugar de Nuevo</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <h2>Resultados de la Partida</h2>
+            <p id="final-result-message"></p>
+            <p id="final-word-info" class="hidden"></p>
+            <button id="play-again-from-results-btn" class="main-button">Jugar de Nuevo</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
